@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Logger</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md border p-6 rounded shadow">
+    <input id="keyInput" type="text" class="w-full border p-2 mb-4" placeholder="Type something..." />
+    <div id="log" class="border p-2 h-40 overflow-y-auto"></div>
+  </div>
+
+  <script>
+    const log = document.getElementById("log");
+    const input = document.getElementById("keyInput");
+
+    input.addEventListener("keydown", (e) => {
+      const entry = document.createElement("div");
+      entry.textContent = `Key: ${e.key}`;
+      log.appendChild(entry);
+      log.scrollTop = log.scrollHeight;
+    });
+  </script>
+</body>
+</html>
